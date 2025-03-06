@@ -15,22 +15,22 @@ class Category {
     return [
       Category(
         title: "Салаты",
-        image: "assets/images/salad.jpg",
+        image: "assets/images/categories/salad.jpg",
         backgroundColor: Colors.teal.shade100,
       ),
       Category(
         title: "Торты",
-        image: "assets/images/cake.jpg",
+        image: "assets/images/categories/cake.jpg",
         backgroundColor: Colors.pink.shade100,
       ),
       Category(
         title: "Пироги",
-        image: "assets/images/pie.jpg",
+        image: "assets/images/categories/pie.jpg",
         backgroundColor: Colors.brown.shade100,
       ),
       Category(
         title: "Смузи",
-        image: "assets/images/smoothie.jpg",
+        image: "assets/images/categories/smoothie.jpg",
         backgroundColor: Colors.red.shade100,
       )
     ];
