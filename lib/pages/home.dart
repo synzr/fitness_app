@@ -53,6 +53,7 @@ class _HomePageState extends State<HomePage> {
       title: Text(
         'Завтрак',
         style: TextStyle(
+          fontFamily: 'Overpass',
           color: Colors.black,
           fontSize: 24,
           fontWeight: FontWeight.bold,

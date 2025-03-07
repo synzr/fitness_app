@@ -30,7 +30,7 @@ class HomeCategorySection extends StatelessWidget {
           color: category.backgroundColor,
           borderRadius: BorderRadius.circular(12.0),
         ),
-        padding: EdgeInsets.symmetric(vertical: 14.0),
+        padding: EdgeInsets.symmetric(vertical: 12.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -43,9 +43,9 @@ class HomeCategorySection extends StatelessWidget {
               ),
             ),
             Text(
-              category.title,
-              style: TextStyle(color: Colors.black, fontSize: 16),
-            ),
+                category.title,
+                style: TextStyle(color: Colors.black, fontSize: 18),
+              ),
           ],
         ),
       ),

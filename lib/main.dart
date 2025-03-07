@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       home: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(fontFamily: 'Overpass'),
+        theme: ThemeData(fontFamily: 'Source Sans 3'),
         home: const HomePage()
       ),
     );

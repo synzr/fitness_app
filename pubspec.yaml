@@ -95,11 +95,21 @@ flutter:
   fonts:
     - family: Overpass
       fonts:
-        - asset: assets/fonts/Overpass-Bold.ttf
+        - asset: assets/fonts/overpass/Overpass-Bold.ttf
           weight: 700
-        - asset: assets/fonts/Overpass-Medium.ttf
+        - asset: assets/fonts/overpass/Overpass-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Overpass-Regular.ttf
+        - asset: assets/fonts/overpass/Overpass-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Overpass-SemiBold.ttf
+        - asset: assets/fonts/overpass/Overpass-SemiBold.ttf
+          weight: 600
+    - family: Source Sans 3
+      fonts:
+        - asset: assets/fonts/source_sans_3/SourceSans3-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/source_sans_3/SourceSans3-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/source_sans_3/SourceSans3-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/source_sans_3/SourceSans3-SemiBold.ttf
           weight: 600

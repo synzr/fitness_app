@@ -71,7 +71,7 @@ class HomeRecommendedDietSection extends StatelessWidget {
               'Посмотреть',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 16,
+                fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -92,7 +92,7 @@ class HomeRecommendedDietSection extends StatelessWidget {
               diet.name,
               style: TextStyle(
                 color: Colors.black,
-                fontSize: 16,
+                fontSize: 18,
                 fontWeight: FontWeight.w500,
               ),
               textAlign: TextAlign.center,
@@ -104,15 +104,15 @@ class HomeRecommendedDietSection extends StatelessWidget {
                 children: [
                   Text(
                     '${diet.calories} ккал',
-                    style: TextStyle(color: Colors.black, fontSize: 14),
+                    style: TextStyle(color: Colors.black, fontSize: 16),
                   ),
                   Text(
                     '·',
-                    style: TextStyle(color: Colors.black, fontSize: 14),
+                    style: TextStyle(color: Colors.black, fontSize: 16),
                   ),
                   Text(
                     '${diet.durationInMinutes} минут',
-                    style: TextStyle(color: Colors.black, fontSize: 14),
+                    style: TextStyle(color: Colors.black, fontSize: 16),
                   ),
                 ],
               ),

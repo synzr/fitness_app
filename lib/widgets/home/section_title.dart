@@ -14,6 +14,7 @@ class HomeSectionTitle extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
+              fontFamily: 'Overpass',
               color: Colors.black,
               fontSize: 24,
               fontWeight: FontWeight.w600,
