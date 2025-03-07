@@ -1,11 +1,11 @@
-import 'package:fitness_app/models/diet.dart';
+import 'package:fitness_app/entities/diet.dart';
 import 'package:fitness_app/utils.dart';
 import 'package:flutter/material.dart';
 
 class HomeRecommendedDietSection extends StatelessWidget {
-  const HomeRecommendedDietSection({super.key, required this.recommendedDiets});
+  const HomeRecommendedDietSection({super.key, required this.diets});
 
-  final List<Diet> recommendedDiets;
+  final List<DietEntity> diets;
 
   @override
   Widget build(BuildContext context) {
@@ -13,17 +13,17 @@ class HomeRecommendedDietSection extends StatelessWidget {
       height: 256,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: recommendedDiets.length,
+        itemCount: diets.length,
         itemBuilder: _itemBuilder,
       ),
     );
   }
 
   Widget? _itemBuilder(context, index) {
-    final diet = recommendedDiets[index];
+    final diet = diets[index];
     return Padding(
       // NOTE: я не хочу использовать ListView.seperated
-      padding: getItemPadding(index, recommendedDiets.length),
+      padding: getItemPadding(index, diets.length),
       child: Container(
         width: 210,
         decoration: BoxDecoration(
@@ -81,7 +81,7 @@ class HomeRecommendedDietSection extends StatelessWidget {
     );
   }
 
-  Padding _getDetails(Diet diet) {
+  Padding _getDetails(DietEntity diet) {
     return Padding(
       padding: EdgeInsets.only(top: 8.0),
       child: SizedBox(

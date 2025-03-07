@@ -1,11 +1,11 @@
-import 'package:fitness_app/models/category.dart';
+import 'package:fitness_app/entities/category.dart';
 import 'package:fitness_app/utils.dart';
 import 'package:flutter/material.dart';
 
 class HomeCategorySection extends StatelessWidget {
   const HomeCategorySection({super.key, required this.categories});
 
-  final List<Category> categories;
+  final List<CategoryEntity> categories;
 
   @override
   Widget build(BuildContext context) {

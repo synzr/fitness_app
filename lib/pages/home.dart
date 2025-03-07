@@ -1,5 +1,7 @@
-import 'package:fitness_app/models/category.dart';
-import 'package:fitness_app/models/diet.dart';
+import 'package:fitness_app/entities/category.dart';
+import 'package:fitness_app/entities/diet.dart';
+import 'package:fitness_app/repositories/category.dart';
+import 'package:fitness_app/repositories/diet.dart';
 import 'package:fitness_app/widgets/home/category_section.dart';
 import 'package:fitness_app/widgets/home/recommended_diet_section.dart';
 import 'package:fitness_app/widgets/home/search_bar.dart';
@@ -15,11 +17,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Category> categories = [];
+  List<CategoryEntity> categories = [];
 
-  List<Diet> recommendedDiets = [];
+  List<DietEntity> recommendedDiets = [];
 
-  List<Diet> popularDiets = [];
+  List<DietEntity> popularDiets = [];
 
   @override
   void initState() {
@@ -42,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           HomeSectionTitle(title: 'Категории'),
           HomeCategorySection(categories: categories),
           HomeSectionTitle(title: 'Рекомендуемые диеты'),
-          HomeRecommendedDietSection(recommendedDiets: recommendedDiets),
+          HomeRecommendedDietSection(diets: recommendedDiets),
         ],
       ),
     );
@@ -87,14 +89,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _getCategories() {
-    categories = Category.getCategories();
+    categories = CategoryRepository.fetchCategories();
   }
 
   void _getRecommendedDiets() {
-    recommendedDiets = Diet.getRecommendedDiets();
+    recommendedDiets = DietRepository.fetchRecommendedDiets();
   }
 
   void _getPopularDiets() {
-    popularDiets = Diet.getPopularDiets();
+    popularDiets = DietRepository.fetchPopularDiets();
   }
 }
