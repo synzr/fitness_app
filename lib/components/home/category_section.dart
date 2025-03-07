@@ -39,7 +39,7 @@ class HomeCategorySection extends StatelessWidget {
               height: 75,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12.0),
-                child: Image.asset(category.image),
+                child: Image.network(category.image),
               ),
             ),
             Text(

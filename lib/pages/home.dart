@@ -2,15 +2,17 @@ import 'package:fitness_app/entities/category.dart';
 import 'package:fitness_app/entities/diet.dart';
 import 'package:fitness_app/repositories/category.dart';
 import 'package:fitness_app/repositories/diet.dart';
-import 'package:fitness_app/widgets/home/category_section.dart';
-import 'package:fitness_app/widgets/home/recommended_diet_section.dart';
-import 'package:fitness_app/widgets/home/search_bar.dart';
-import 'package:fitness_app/widgets/home/section_title.dart';
+import 'package:fitness_app/components/home/category_section.dart';
+import 'package:fitness_app/components/home/recommended_diet_section.dart';
+import 'package:fitness_app/components/home/search_bar.dart';
+import 'package:fitness_app/components/home/section_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({super.key, required this.apiBaseUrl});
+
+  final String apiBaseUrl;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -88,15 +90,17 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _getCategories() {
-    categories = CategoryRepository.fetchCategories();
+  void _getCategories() async {
+    categories = await CategoryRepository.fetchCategories(widget.apiBaseUrl);
   }
 
-  void _getRecommendedDiets() {
-    recommendedDiets = DietRepository.fetchRecommendedDiets();
+  void _getRecommendedDiets() async {
+    recommendedDiets = await DietRepository.fetchRecommendedDiets(
+      widget.apiBaseUrl,
+    );
   }
 
-  void _getPopularDiets() {
-    popularDiets = DietRepository.fetchPopularDiets();
+  void _getPopularDiets() async {
+    popularDiets = await DietRepository.fetchPopularDiets(widget.apiBaseUrl);
   }
 }

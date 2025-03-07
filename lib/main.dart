@@ -12,12 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'Source Sans 3'),
       title: 'Flutter Demo',
-      home: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(fontFamily: 'Source Sans 3'),
-        home: const HomePage()
-      ),
+      home: const HomePage(apiBaseUrl: 'http://192.168.1.210:5000'),
     );
   }
 }

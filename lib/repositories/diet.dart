@@ -1,50 +1,52 @@
+import 'dart:convert';
+
 import 'package:fitness_app/entities/diet.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
 class DietRepository {
-  static final List<DietEntity> _recommendedDiets = [
-    DietEntity(
-      name: 'Медовые блиночки',
-      image: 'assets/images/diets/honey-pancake.jpg',
-      level: 'Easy',
-      durationInMinutes: 30,
-      calories: 180,
-      backgroundColor: Colors.yellow.shade100,
-    ),
-    DietEntity(
-      name: 'Канайский хлеб',
-      image: 'assets/images/diets/canai-bread.jpg',
-      level: 'Easy',
-      durationInMinutes: 20,
-      calories: 230,
-      backgroundColor: Colors.amber.shade100,
-    ),
-  ];
+  static List<DietEntity> _convertToDiets(String apiBaseUrl, List raw) {
+    List<DietEntity> entities = [];
 
-  static final List<DietEntity> _popularDiets = [
-    DietEntity(
-      name: 'Черничные блиночки',
-      image: 'assets/images/diets/blueberry-pancake.jpg',
-      level: 'Medium',
-      durationInMinutes: 30,
-      calories: 230,
-    ),
-    DietEntity(
-      name: 'Лосось Нигири',
-      image: 'assets/images/diets/salmon-nigiri.jpg',
-      level: 'Easy',
-      durationInMinutes: 20,
-      calories: 120,
-    ),
-  ];
+    for (var diet in raw) {
+      entities.add(
+        DietEntity(
+          name: diet['name'],
+          image: '$apiBaseUrl${diet['image_uri']}',
+          level: diet['level'],
+          durationInMinutes: diet['duration_in_minutes'],
+          calories: diet['calories'],
+          backgroundColor: Color(diet['background_color']),
+        ),
+      );
+    }
 
-  static List<DietEntity> fetchRecommendedDiets() {
-    // TODO: implement this with API
-    return _recommendedDiets;
+    return entities;
   }
 
-  static List<DietEntity> fetchPopularDiets() {
-    // TODO: implement this with API
-    return _popularDiets;
+  static Future<List<DietEntity>> fetchRecommendedDiets(
+    String apiBaseUrl,
+  ) async {
+    final uri = Uri.parse("$apiBaseUrl/diets/recommended");
+    final response = await http.get(uri);
+
+    if (response.statusCode == 200) {
+      List<dynamic> raw = json.decode(response.body);
+      return _convertToDiets(apiBaseUrl, raw);
+    }
+
+    throw Exception('failed to fetch recommended diets');
+  }
+
+  static Future<List<DietEntity>> fetchPopularDiets(String apiBaseUrl) async {
+    final uri = Uri.parse("$apiBaseUrl/diets/popular");
+    final response = await http.get(uri);
+
+    if (response.statusCode == 200) {
+      List<dynamic> raw = json.decode(response.body);
+      return _convertToDiets(apiBaseUrl, raw);
+    }
+
+    throw Exception('failed to fetch recommended diets');
   }
 }

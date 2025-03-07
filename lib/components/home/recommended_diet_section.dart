@@ -38,7 +38,7 @@ class HomeRecommendedDietSection extends StatelessWidget {
               height: 115,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12.0),
-                child: Image.asset(diet.image),
+                child: Image.network(diet.image),
               ),
             ),
             _getDetails(diet),
